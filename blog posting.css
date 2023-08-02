@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "heading-font";
+    src: url(Pangolin-Regular.ttf);
+}
+@font-face {
+    font-family: "post-heading";
+    src: url(MerriweatherSans-VariableFont_wght.ttf);
+}
+body,html{
+    
+    margin: 0;
+    padding: 0;
+}
+body{
+ 
+    font-family: 'Roboto', sans-serif;
+    /* background-color: #D4CC8B; */
+}
+.heading{
+    width: 220px;
+    /* background-color: aqua; */
+    font-size: 44px;
+    margin: 0 auto;
+    font-family: "heading-font";
+    margin-top: 20px;
+    margin-left: 260px;
+}
+.posting{
+    height: 723px;
+    width: 30%;
+    background-color: aquamarine;
+    margin-left: 778px;
+    margin-top: -70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+}
+.heading-post{
+      font-size: 36px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      margin-top: 20px;
+
+}
+
+.form_fill{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: -0px;
+
+}
+label{
+    font-size: 20px;
+}
+#headingOfPost{
+    width: 300px;
+    height: 20px;
+
+}
+.submit{
+    margin-top: 50px;
+}
+
+.post_lookup{
+    height: 700px;
+    width: 775px;
+    /* background-color: rgb(6, 8, 8); */
+    margin-top: 40px;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    
+
+}
+.post{
+    height: 200px;
+    width: 350px;
+    /* background-color: bisque; */
+    margin-top: 20px;
+    border-radius: 10px;
+    margin-left: 20px;
+    word-wrap: break-word;
+    border: 2px solid rgb(128, 128, 128);
+    
+}
+.post_heading{
+    height: 45px;
+    width: 90%;
+    font-size: 34px;
+    margin-left: 20px;
+    font-family: "post-heading";
+    margin-top: 5px;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    /* background-color: burlywood; */
+}
+.post_description{
+    height: 100px;
+    width: 320px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+    margin-top: -40px;
+    margin-top: -20px;
+    border-bottom:1px solid rgb(204, 204, 204);
+    /* background-color: blueviolet; */
+}
+ .edit{
+    margin-left: 20px;
+    width: 70px;
+    height: 20px;
+    border-radius: 5px;
+
+} 
+.delete{
+    margin-left: 70px;
+    width: 70px;
+    height: 20px;
+    border-radius: 5px;
+    
+    
+}

@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+body,html{
+    height: 100%;
+}
+body{
+    background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+    font-family: 'Roboto', sans-serif;
+}
+.main{
+    height: 390px;
+    width: 360px;
+    background-color:white;
+    margin: 0 auto; 
+    margin-top: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+   
+}
+.heading{
+    font-size: 21px;
+    font-weight:bold;
+    /* background-color:bisque; */
+    margin-top: 65px;
+}
+.para{
+    margin-top: -15px;
+    font-size: 13.5px;
+    color: rgb(117, 117, 117);
+}
+.email-label{
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: -15px;
+}
+.email{
+    width: 290px;
+    height: 25px;
+    border-radius: 4px;
+    border-color:rgb(240, 240, 240) ;
+    border-style: groove;
+}
+.password-label{
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: -4px;
+}
+.password{
+    width: 290px;
+    height: 25px;
+    border-radius: 4px;
+    border-color:rgb(240, 240, 240) ;
+    border-style: groove;
+}
+.password-forget{
+    margin-left: -205px;
+    font-size: 11.4px;
+    margin-top: 19px;
+    color:rgb(153, 153, 153) ;
+    font-weight: bold;
+}
+.sign-in{
+    width: 300px;
+    height: 30px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    font-weight: bold;
+    color: white;
+    background-color: #0280FB;
+    border-style: groove;
+    border-color: #0280FB;
+    margin-top: 8px;
+}
+.sign-up{
+    font-size: 11px;
+    color:rgb(58, 58, 58) ;
+    font-weight: 900px;
+    margin-top: 17px;
+
+}
+.image{
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    margin: 0 auto;
+    margin-top: -435px;
+    border-radius: 50px;
+}
+.dummy-image{
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 50px;
+}

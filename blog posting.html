@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="blog posting.css">
+</head>
+<body>
+    <div class="heading">Blog Posts</div>
+
+    <div class="posting">
+        <div class="heading-post">Add content<i class="bi bi-star"></i></div>
+
+
+        <form class="form_fill">
+            <label>Name *</label>
+            <input type="text" name="blog" placeholder="blog" id="headingOfPost">
+              
+        <label>Description</label>
+        <textarea name="Description" id="discriptionOfPost" rows="20" placeholder="Enter Description of Blog"></textarea>
+        <!-- <button class="submit" onclick="submit()">submit</button> -->
+        <input type="button" class="submit" value="submit">
+        </form>
+
+       
+    </div>
+    <div class="post_lookup" id="postDisplayGrid">
+           <!-- <div class="post">
+            <h2 class="post_heading">Hello</h2>
+            <p class="post_description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam vel quasi mollitia quae consequuntur explicabo. Aliquam rem et totam hic
+                 reprehenderit, atque adipisci. Cupiditate mollitia in aliquid numquam totam repellat.</p>
+                 <input type="button" class="edit" value="edit">
+                 <input type="button" class="delete" value="delete">
+          
+                </div>  -->
+      
+   
+    </div>
+
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { collection, addDoc, getFirestore,
+            getDocs, onSnapshot, serverTimestamp,
+            query, orderBy, deleteDoc, doc, updateDoc} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+        
+        const firebaseConfig = {
+    apiKey: "AIzaSyDVfzMzjUQIYSAwCSjvAaE1AWuBeTFWNTI",
+    authDomain: "blog-posting-website.firebaseapp.com",
+    projectId: "blog-posting-website",
+    storageBucket: "blog-posting-website.appspot.com",
+    messagingSenderId: "190731355950",
+    appId: "1:190731355950:web:d7240a867bcfeb3f2b9cbf"
+  };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+
+
+        let element=document.querySelector(".submit")
+        element.addEventListener("click",async ()=>{
+            alert("hello")
+            const heading=document.getElementById("headingOfPost").value;
+        console.log(heading)
+        const description=document.getElementById("discriptionOfPost").value
+        console.log(description)
+
+        const docRef = await addDoc(collection(db, "posts"), {
+             heading: heading,
+             description: description
+               });
+              console.log("Document written with ID: ", docRef.id);
+        })
+     
+
+
+
+        document.addEventListener("readystatechange",async (event) => {
+            console.log(`readystate: ${document.readyState}`)
+        if (document.readyState === "complete") {
+            // const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+            const q = collection(db, "posts");
+            // const unsubscribe = onSnapshot(q,async (querySnapshot) => {
+                const querySnapshot = await getDocs(q);
+                const postGrid = document.querySelector("#postDisplayGrid");
+                postGrid.innerHTML = '';
+                // console.log(doc)
+                console.log(querySnapshot.size);
+               
+
+                querySnapshot.forEach(function (doc) {
+                    
+                        const data = doc.data();
+                        const postId = doc.id;
+                          console.log(data)
+                          console.log(postId)
+                        postGrid.innerHTML += `
+                            <div class="post" data-id="${postId}">
+                                <h2 class="post_heading">${data.heading}</h2>
+                                <p class="post_description">${data.description}</p>
+                                <input type="button" class="edit" value="edit">
+
+                                <button class="delete" onclick="deleteBook('${doc.id}')") >Delete</button>
+                            </div>`;
+                    });
+
+                }
+
+                window.deleteBook = async (docId) => {
+                console.log("deleteBook function called: ", docId);
+
+                await deleteDoc(doc(db, "posts", docId));
+            }
+        });
+
+
+
+      
+
+
+
+                // querySnapshot.forEach(function (doc) {
+                    
+                //     const data = doc.data();
+                //     const postId = doc.id;
+                //       console.log(data)
+                //       console.log(postId)
+                //     postGrid.innerHTML += `
+                //         <div class="post" data-id="${postId}">
+                //             <h2 class="post_heading">${data.heading}</h2>
+                //             <p class="post_description">${data.description}</p>
+                //             <input type="button" class="edit" value="edit">
+                //             <input type="button" class="delete" value="delete">
+                //         </div>`;
+                // });
+        
+        
+        
+
+    
+        </script>
+
+
+
+

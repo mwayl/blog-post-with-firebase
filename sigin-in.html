@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="sign-in.css">
+    <title>Polling App</title>
+    
+    
+</head>
+<body>
+    <div class="main">
+      <p class="heading">Sign Up</p>
+      <p class="para">Sign Up to manage all your devices</p>
+      <br>
+      <label class="name-label" >Name </br>
+      <input type="text" class="name" name="name"></label></br>
+      <label class="number-label">Mobile Number </br>
+      <input type="text" class="number" name="Mobilenumber"></label></br>
+      <label class="email-label">Email </br>
+        <input type="text" class="email" name="email"></label></br>
+        <label class="password-label">Password </br>
+        <input type="text" class="password" name="password"></label>
+        <label class="password-checker-label">Recheck Password</br>
+        <input type="text" class="password-checker" name="password-checker"></label>
+      <button class="sign-up">Sign Up</button>
+      <p class="sign-in">Already have an account? <b><a href="index.html">Sign Up</a></b></p>
+     
+    </form>
+    </div>
+    <div class="image">
+<img src="pics/man-dummy.jpg" class="dummy-image">
+    </div>
+
+    <!-- <button class="dummy">dummy</button> -->
+
+
+
+
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+       // import { getAuth, signInWithCustomToken } from "firebase/auth";
+        import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+    apiKey: "AIzaSyDVfzMzjUQIYSAwCSjvAaE1AWuBeTFWNTI",
+    authDomain: "blog-posting-website.firebaseapp.com",
+    projectId: "blog-posting-website",
+    storageBucket: "blog-posting-website.appspot.com",
+    messagingSenderId: "190731355950",
+    appId: "1:190731355950:web:d7240a867bcfeb3f2b9cbf"
+  };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);  
+        
+        const auth = getAuth();
+        var element=document.querySelector(".sign-up");
+        element.addEventListener("click",()=>{
+          let name=document.querySelector(".name").value;
+          let number=document.querySelector(".number").value;
+          let email=document.querySelector(".email").value;
+          let password=document.querySelector(".password").value;
+          let password_checker=document.querySelector(".password-checker").value;
+        if(password===password_checker){
+         createUserWithEmailAndPassword(auth, email, password)
+         .then((userCredential) => {
+           // Signed in
+        const user = userCredential.user;
+          console.log(user)
+          console.log(user.email)
+          alert("registration successfully")
+          window.location="blog posting.html";
+          // ...
+        })
+           .catch((error) => {
+           const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage)
+            alert("registration does not occur successfully")
+            // ...
+          });
+          
+        }
+        else{
+          alert("registration does not occur successfully")
+        }
+        
+        })
+        
+
+
+
+
+
+
+
+        // var element=document.querySelector(".dummy");
+        // element.addEventListener("click",()=>{
+      
+// const auth = getAuth();
+// const user = auth.currentUser;
+// if (user !== null) {
+//   // The user object has basic properties such as display name, email, etc.
+//   const displayName = user.displayName;
+//   const email = user.email;
+//   const photoURL = user.photoURL;
+//   const emailVerified = user.emailVerified;
+
+//   // The user's ID, unique to the Firebase project. Do NOT use
+//   // this value to authenticate with your backend server, if
+//   // you have one. Use User.getToken() instead.
+//   const uid = user.uid;
+//   console.log(displayName,email,emailVerified,uid)
+// }
+//         })
+      </script>
+</body>
+</html>
